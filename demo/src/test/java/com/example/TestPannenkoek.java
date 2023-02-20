@@ -31,6 +31,7 @@ public class TestPannenkoek
         assertEquals(teststapel.pakPannenkoekVanBord(),teststring);
     }
 
+    @Test
     public void test2itemsopdestackNietEquals(){
         Stack teststapel = new Stack();
 
@@ -43,6 +44,7 @@ public class TestPannenkoek
         assertNotEquals(teststring1, teststapel.pakPannenkoekVanBord());
     }
 
+    @Test
     public void test2itemsopdestackWelEquals(){
         Stack teststapel = new Stack();
 
@@ -55,6 +57,7 @@ public class TestPannenkoek
         Object o1 = teststapel.pakPannenkoekVanBord();
         Object o2 = teststapel.pakPannenkoekVanBord();
 
+        assertEquals(teststring2, o1);
         assertEquals(teststring1, o2);
     }
 
