@@ -3,10 +3,7 @@ package com.example;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 
-import java.beans.Transient;
 import org.junit.Test;
-
-import com.example.Stack;
 
 /**
  * Unit test for simple App.
