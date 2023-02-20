@@ -3,6 +3,7 @@ package com.example;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 
@@ -12,7 +13,7 @@ import org.junit.Test;
 public class TestPannenkoek 
 {
     /**
-     * Rigorous Test :-)
+     * Standaard test bij het aanmaken van deze file. Deal with it.
      */
     @Test
     public void shouldAnswerWithTrue()
@@ -59,6 +60,12 @@ public class TestPannenkoek
 
         assertEquals(teststring2, o1);
         assertEquals(teststring1, o2);
+    }
+
+    @Test
+    public void pakbovenstepannenkoekMetLegeStapel(){
+        Stack teststapel = new Stack();
+        assertNull(teststapel.pakPannenkoekVanBord());
     }
 
     
