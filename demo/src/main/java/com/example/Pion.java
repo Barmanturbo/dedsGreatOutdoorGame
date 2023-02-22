@@ -21,16 +21,18 @@ public class Pion {
         if(Speelveld.legalVerplaats(xPos, yPos, x, y)){
             addPawn(x,y,kleur);
             removePawn(xPos,yPos);
-        }
+        
 
         infect(x,y);
+        }
     }
 
     public void dupliceer(int x, int y){
         if(Speelveld.legalDupliceer(xPos, yPos, x, y)){
             addPawn(x,y,kleur);
-        }
+        
         infect(x,y);
+        }
     }
 
     private void addPawn(int x, int y, String kleur){
