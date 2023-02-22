@@ -89,8 +89,6 @@ public class Speler {
                 ||
                 (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos(), p.getYPos() - 1))
                 ||
-                (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos(), p.getYPos()))
-                ||
                 (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos(), p.getYPos() + 1))
                 ||
                 (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos() + 1, p.getYPos() - 1))
