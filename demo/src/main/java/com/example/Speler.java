@@ -68,36 +68,36 @@ public class Speler {
         // Nu heb je al jouw pionnen in een lijstje staan.
         for (Pion p : alJouwPionnen) {
             if (
-            // Controleer voor alle sprongen
-            // Check plek 2 boven deze plek
-            (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos() + 2, p.getYPos()))
-                    || // Check plek 2 rechts van deze plek
-                    (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos(), p.getYPos() + 2))
-                    || // Check plek 2 onder deze plek
-                    (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos() - 2, p.getYPos()))
-                    || // Check plek 2 links van deze plek
-                    (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos(), p.getYPos() - 2))) {
+                // Controleer voor alle sprongen
+                // Check plek 2 boven deze plek
+                (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos() + 2, p.getYPos()))
+                || // Check plek 2 rechts van deze plek
+                (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos(), p.getYPos() + 2))
+                || // Check plek 2 onder deze plek
+                (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos() - 2, p.getYPos()))
+                || // Check plek 2 links van deze plek
+                (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos(), p.getYPos() - 2))) {
                 return false;
             }
             if (
-            // Controleer voor alle aanloggende vakjes of dupliceren kan
-            (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos() - 1, p.getYPos() - 1))
-                    ||
-                    (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos() - 1, p.getYPos()))
-                    ||
-                    (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos() - 1, p.getYPos() + 1))
-                    ||
-                    (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos(), p.getYPos() - 1))
-                    ||
-                    (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos(), p.getYPos()))
-                    ||
-                    (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos(), p.getYPos() + 1))
-                    ||
-                    (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos() + 1, p.getYPos() - 1))
-                    ||
-                    (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos() + 1, p.getYPos()))
-                    ||
-                    (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos() + 1, p.getYPos() + 1))) {
+                // Controleer voor alle aanloggende vakjes of dupliceren kan
+                (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos() - 1, p.getYPos() - 1))
+                ||
+                (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos() - 1, p.getYPos()))
+                ||
+                (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos() - 1, p.getYPos() + 1))
+                ||
+                (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos(), p.getYPos() - 1))
+                ||
+                (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos(), p.getYPos()))
+                ||
+                (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos(), p.getYPos() + 1))
+                ||
+                (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos() + 1, p.getYPos() - 1))
+                ||
+                (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos() + 1, p.getYPos()))
+                ||
+                (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos() + 1, p.getYPos() + 1))) {
                 return false;
             }
         }
