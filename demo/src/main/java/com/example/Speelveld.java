@@ -25,7 +25,11 @@ public class Speelveld {
     }
 
     private static boolean isEmpty(int x, int y){
-        return veldPionnen[x][y]==null;
+        try{
+            return veldPionnen[x][y]==null;
+        }catch(Exception e){
+            return false;
+        }
     }
 
     private static boolean isAdjacent(int x1, int y1, int x2, int y2){
