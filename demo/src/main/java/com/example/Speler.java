@@ -70,13 +70,13 @@ public class Speler {
             if (
                 // Controleer voor alle sprongen
                 // Check plek 2 boven deze plek
-                (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos() + 2, p.getYPos()))
+                (Speelveld.legalVerplaats(p.getXPos(), p.getYPos(), p.getXPos() + 2, p.getYPos()))
                 || // Check plek 2 rechts van deze plek
-                (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos(), p.getYPos() + 2))
+                (Speelveld.legalVerplaats(p.getXPos(), p.getYPos(), p.getXPos(), p.getYPos() + 2))
                 || // Check plek 2 onder deze plek
-                (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos() - 2, p.getYPos()))
+                (Speelveld.legalVerplaats(p.getXPos(), p.getYPos(), p.getXPos() - 2, p.getYPos()))
                 || // Check plek 2 links van deze plek
-                (Speelveld.legalDupliceer(p.getXPos(), p.getYPos(), p.getXPos(), p.getYPos() - 2))) {
+                (Speelveld.legalVerplaats(p.getXPos(), p.getYPos(), p.getXPos(), p.getYPos() - 2))) {
                 return false;
             }
             if (

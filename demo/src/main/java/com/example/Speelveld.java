@@ -1,6 +1,32 @@
 package com.example;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
+
 public class Speelveld {
+    //JAVAFX (vervelend)------------------------------------------------------------------------------
+    @FXML
+    AnchorPane pane;
+
+    @FXML
+    VBox midden;
+
+    @FXML
+    Label Spelerlabel;
+
+    @FXML
+    Label ScoreP1;
+
+    @FXML
+    Label ScoreP2;
+    
+    @FXML
+    VBox links;
+    //------------------------------------------------------------------------------------------------
+    //LOGIC
+    //------------------------------------------------------------------------------------------------
     public static int rijen = 7;//=y
     public static int kolommen = 7;//=x
     public static Pion[][] veldPionnen = new Pion[kolommen][rijen];
