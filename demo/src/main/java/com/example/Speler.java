@@ -16,7 +16,7 @@ public class Speler {
         return naam;
     }
     
-    public int telEigenPionnen() {
+    public int countOwn() {
         int count = 0;
         for (int i = 0; i < Speelveld.kolommen; i++) {
             for (int j = 0; j < Speelveld.rijen; j++) {

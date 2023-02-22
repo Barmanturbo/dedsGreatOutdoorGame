@@ -8,7 +8,7 @@ public class Speelveld {
 
     public static boolean legalDupliceer(int xNu, int yNu, int xMove, int yMove){
         return 
-            isEmpty(xNu, yNu)
+            !isEmpty(xNu, yNu)
             &&
             isEmpty(xMove,yMove)
             &&
@@ -17,7 +17,7 @@ public class Speelveld {
 
     public static boolean legalVerplaats(int xNu, int yNu, int xMove, int yMove){
         return 
-            isEmpty(xNu, yNu)
+            !isEmpty(xNu, yNu)
             &&
             isEmpty(xMove,yMove)
             &&

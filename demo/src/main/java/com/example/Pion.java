@@ -6,7 +6,11 @@ public class Pion {
     private int xPos;
     private int yPos;
 
-    public Pion(int xPos, int yPos, String kleur){}
+    public Pion(int xPos, int yPos, String kleur){
+        this.xPos = xPos;
+        this.yPos = yPos;
+        this.kleur = kleur;
+    }
 
     public String getKleur(){return kleur;}
     public void setKleur(String kleur){this.kleur=kleur;}
@@ -29,15 +33,15 @@ public class Pion {
     public void dupliceer(int x, int y){
         if(Speelveld.legalDupliceer(xPos, yPos, x, y)){
             addPawn(x,y,kleur);
-            
+
             infect(x,y);
         }
     }
 
-    private void addPawn(int x, int y, String kleur){
+    public void addPawn(int x, int y, String kleur){
         Speelveld.veldPionnen[x][y]=new Pion(x,y,kleur);
     }
-    private void removePawn(int x, int y){
+    public void removePawn(int x, int y){
         Speelveld.veldPionnen[x][y]=null;
     }
 
