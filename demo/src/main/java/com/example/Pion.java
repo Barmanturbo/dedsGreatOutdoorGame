@@ -21,31 +21,35 @@ public class Pion {
     public int getYPos(){return yPos;}
     public void setYPos(int yPos){this.yPos=yPos;}
 
-    public void verplaats(int x, int y){
+    public void verplaats(int x, int y) throws Exception{
         if(Speelveld.legalVerplaats(xPos, yPos, x, y)){
-            addPawn(x,y,kleur);
-            removePawn(xPos,yPos);
+            voegPionToe(x,y,kleur);
+            verwijderPion(xPos,yPos);
 
-            infect(x,y);
+            infecteer(x,y);
+        }else{
+            throw new Exception("Kies een vakje waar je wel heen kan verplaatsen.");
         }
     }
 
-    public void dupliceer(int x, int y){
+    public void dupliceer(int x, int y) throws Exception{
         if(Speelveld.legalDupliceer(xPos, yPos, x, y)){
-            addPawn(x,y,kleur);
+            voegPionToe(x,y,kleur);
 
-            infect(x,y);
+            infecteer(x,y);
+        }else{
+            throw new Exception("Kies een vakje waar je wel heen kan dupliceren.");
         }
     }
 
-    public void addPawn(int x, int y, String kleur){
+    public void voegPionToe(int x, int y, String kleur){
         Speelveld.veldPionnen[x][y]=new Pion(x,y,kleur);
     }
-    public void removePawn(int x, int y){
+    public void verwijderPion(int x, int y){
         Speelveld.veldPionnen[x][y]=null;
     }
 
-    private void infect(int x, int y){
+    private void infecteer(int x, int y){
         String phyrexianKleur = Speelveld.veldPionnen[x][y].getKleur();
         for (int j = 1; j >= -1; j--) {
             for(int i = -1; i<=1;i++){

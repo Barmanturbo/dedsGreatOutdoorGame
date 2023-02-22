@@ -19,7 +19,7 @@ public class Speler {
         return naam;
     }
 
-    public int countOwn() {
+    public int countEigen() {
         int count = 0;
         for (int i = 0; i < Speelveld.kolommen; i++) {
             for (int j = 0; j < Speelveld.rijen; j++) {
@@ -30,6 +30,28 @@ public class Speler {
             }
         }
         return count;
+    }
+
+    public String doeZet(int xOud, int yOud, int xNieuw, int yNieuw){
+        String errBericht;
+
+        if(Speelveld.veldPionnen[xOud][yOud].getKleur()==getKleur()){
+            try{
+                Speelveld.veldPionnen[xOud][yOud].dupliceer(xNieuw, yNieuw);
+                return "Speler "+naam+" dupliceerde x"+xOud+"y"+yOud+"naar x"+xNieuw+"y"+yNieuw;
+            }catch(Exception e){
+                errBericht = e.getMessage();
+            }
+            try{
+                Speelveld.veldPionnen[xOud][yOud].verplaats(xNieuw, yNieuw);
+                return "Speler "+naam+" verplaatste x"+xOud+"y"+yOud+"naar x"+xNieuw+"y"+yNieuw;
+            }catch(Exception f){
+                errBericht=f.getMessage();
+            }
+            return errBericht;
+        }else{
+            return "Kies een pion van je eigen kleur";
+        }
     }
 
     public boolean geenLegalMoveBeschikbaar() {

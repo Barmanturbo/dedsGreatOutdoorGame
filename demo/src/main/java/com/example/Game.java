@@ -48,7 +48,7 @@ public class Game {
         }
 
         for(Pion p:voegPionToe){
-            p.addPawn(p.getXPos(),p.getYPos(),p.getKleur());
+            p.voegPionToe(p.getXPos(),p.getYPos(),p.getKleur());
         }
     }
 }
