@@ -88,19 +88,41 @@ public class App {
             Speelveld.printBord();
             System.out.println("Kies je pion die je wil verplaatsen of dupliceren.");
             System.out.println("Schrijf in de vorm [x-coordinaat],[y-coordinaat], zoals 3,4");
-            vraagCoordinatenInput(scan2D2);
+            System.out.println("Of typ \"redo\" als je je een zet terug wil doen.");
+            if(huidigeSpeler.getIsRobot()){
+                vraagCoordinatenInputRobot();
+            }else{
+                vraagCoordinatenInputHuman(scan2D2);
+            }
         }
 
     }
 
-    private static void vraagCoordinatenInput(IScanner scanGonJinn) {
+    private static void vraagCoordinatenInputRobot() {
+    }
+
+    private static void vraagCoordinatenInputHuman(IScanner scanGonJinn) {
+        int x = Speelveld.rijen + 1;
+        int y = Speelveld.kolommen + 1;
+
         loop1: while (true) {
             try {
                 String input = scanGonJinn.nextLine();
+                
+                if(input=="redo"){
+                    try{
+                        haalOudSpelBordTerug();
+                        while(huidigeSpeler.getIsRobot()){
+                            haalOudSpelBordTerug();
+                        }
+                    }catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    break loop1;
+                }
+
                 String[] integerStrings = input.split("[^0-9]+");
 
-                int x = Speelveld.rijen + 1;
-                int y = Speelveld.kolommen + 1;
                 if (integerStrings[0] != null
                         &&
                         integerStrings[1] != null
@@ -122,6 +144,7 @@ public class App {
                 System.out.println("Probeer het opnieuw.");
             }
         }
+
     }
 
     private static void gameOver() {
