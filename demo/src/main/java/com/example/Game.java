@@ -5,10 +5,16 @@ import java.util.ArrayList;
 public class Game {
     public static ArrayList<Speler> spelerslijst = new ArrayList<Speler>();
 
-    public static void init() {
+    public static void init(int n) {
         schoonmaken();
         spelerslijst.add(new Speler("rood", "p1"));
         spelerslijst.add(new Speler("blauw", "p2"));
+        if(n==3){
+            spelerslijst.add(new Speler("geel", "p3"));
+        }
+        if(n==4){
+            spelerslijst.add(new Speler("groen","p4"));
+        }
         Speelveld.huidigeSpeler = spelerslijst.get(0);
         plaatsPionnen();
 

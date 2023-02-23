@@ -7,6 +7,8 @@ public class Speelveld {
 
     public static Speler huidigeSpeler;
 
+    public static Stack movegeschiedenisStack = new Stack();
+
 
     public static boolean legalDupliceer(int xNu, int yNu, int xMove, int yMove){
         return 

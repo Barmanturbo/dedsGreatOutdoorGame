@@ -5,19 +5,22 @@ import java.util.ArrayList;
 public class Speler {
     private String kleur;
     private String naam;
+    private boolean isRobot;
 
     public Speler(String kleur, String naam) {
         this.kleur = kleur;
         this.naam = naam;
+        this.isRobot=false;
     }
 
-    public String getKleur() {
-        return kleur;
-    }
+    public String getKleur() {return kleur;}
+    public void setKleur(String kleur){this.kleur = kleur;}
 
-    public String getNaam() {
-        return naam;
-    }
+    public String getNaam() {return naam;}
+    public void setNaam(String naam){this.naam = naam;}
+
+    public void setIsRobot(boolean isRobot){this.isRobot = isRobot;}
+    public boolean getIsRobot(){return isRobot;}
 
     public int countEigen() {
         int count = 0;
@@ -38,12 +41,18 @@ public class Speler {
         if(Speelveld.veldPionnen[xOud][yOud].getKleur()==getKleur()){
             try{
                 Speelveld.veldPionnen[xOud][yOud].dupliceer(xNieuw, yNieuw);
+
+                Speelveld.movegeschiedenisStack.nieuwPannenkoekOpBord(new UndoData());
+
                 return "Speler "+naam+" dupliceerde x"+xOud+"y"+yOud+"naar x"+xNieuw+"y"+yNieuw;
             }catch(Exception e){
                 errBericht = e.getMessage();
             }
             try{
                 Speelveld.veldPionnen[xOud][yOud].verplaats(xNieuw, yNieuw);
+
+                Speelveld.movegeschiedenisStack.nieuwPannenkoekOpBord(new UndoData());
+                
                 return "Speler "+naam+" verplaatste x"+xOud+"y"+yOud+"naar x"+xNieuw+"y"+yNieuw;
             }catch(Exception f){
                 errBericht=f.getMessage();
