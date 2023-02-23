@@ -9,7 +9,7 @@ public class Game {
         schoonmaken();
         spelerslijst.add(new Speler("rood", "p1"));
         spelerslijst.add(new Speler("blauw", "p2"));
-
+        Speelveld.huidigeSpeler = spelerslijst.get(0);
         plaatsPionnen();
 
     }
