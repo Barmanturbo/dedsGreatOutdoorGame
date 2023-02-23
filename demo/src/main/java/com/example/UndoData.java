@@ -5,12 +5,21 @@ public class UndoData {
     private Speler speler;
 
     public UndoData(){
-        this.oudeOpstelling = Speelveld.veldPionnen.clone();
-        this.speler = Speelveld.huidigeSpeler;
+        this.speler = App.huidigeSpeler;
+
+        for(int i=0;i<Speelveld.rijen;i++){
+            for(int j=0;j<Speelveld.rijen;j++){
+                oudeOpstelling[i][j]=Speelveld.veldPionnen[i][j];
+            }
+        }
     }
 
     public void terugNaarOudeOpstelling(){
-        Speelveld.veldPionnen = oudeOpstelling.clone();
-        Speelveld.huidigeSpeler = speler;
+        for(int i=0;i<oudeOpstelling.length;i++){
+            for(int j=0;j<oudeOpstelling[i].length;j++){
+                Speelveld.veldPionnen[i][j]=oudeOpstelling[i][j];
+            }
+        }
+        App.huidigeSpeler = speler;
     }
 }

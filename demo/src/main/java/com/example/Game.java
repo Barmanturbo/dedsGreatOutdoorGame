@@ -7,15 +7,15 @@ public class Game {
 
     public static void init(int n) {
         schoonmaken();
-        spelerslijst.add(new Speler("\u2299", "p1"));//⊙
-        spelerslijst.add(new Speler("\u2680", "p2"));//⊡
+        spelerslijst.add(new Speler("a", "p1"));//⊙
+        spelerslijst.add(new Speler("b", "p2"));//⊡
         if(n==3){
-            spelerslijst.add(new Speler("\u25b3", "p3"));//△ 
+            spelerslijst.add(new Speler("c", "p3"));//△ 
         }
         if(n==4){
-            spelerslijst.add(new Speler("\u2126","p4"));//Ω
+            spelerslijst.add(new Speler("d","p4"));//Ω
         }
-        Speelveld.huidigeSpeler = spelerslijst.get(0);
+        App.huidigeSpeler = spelerslijst.get(0);
         plaatsPionnen();
 
     }
@@ -42,7 +42,7 @@ public class Game {
             voegPionToe.add(new Pion(1, 0, spelerslijst.get(1).getKleur()));
             voegPionToe.add(new Pion(1, 1, spelerslijst.get(1).getKleur()));
 
-        if (spelerslijst.size() == 3) {
+        if (spelerslijst.size() == 3 || spelerslijst.size() == 4) {
             voegPionToe.add(new Pion(0, 5, spelerslijst.get(2).getKleur()));
             voegPionToe.add(new Pion(1, 5, spelerslijst.get(2).getKleur()));
             voegPionToe.add(new Pion(0, 6, spelerslijst.get(2).getKleur()));

@@ -59,7 +59,7 @@ public class Speler {
             }
             return errBericht;
         }else{
-            return "Kies een pion van je eigen kleur";
+            return "Kies een pion van je eigen karakter";//vroeger stond hier "((...) eigen kleur"
         }
     }
 

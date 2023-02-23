@@ -5,8 +5,6 @@ public class Speelveld {
     public static int kolommen = 7;//=x
     public static Pion[][] veldPionnen = new Pion[kolommen][rijen];
 
-    public static Speler huidigeSpeler;
-
     public static Stack movegeschiedenisStack = new Stack();
 
     public static IPrinter kopiesjop = new Tgowprinter(); //vernoemd naar kopiesjop Delft
@@ -58,7 +56,8 @@ public class Speelveld {
 
     public static void printBord(){
         //print x-as
-        for(int k=0;k<=kolommen;k++){
+        kopiesjop.print("  ");
+        for(int k=0;k<kolommen;k++){
             kopiesjop.print(""+k+" ");
         }
         kopiesjop.println();
@@ -81,7 +80,7 @@ public class Speelveld {
 
         //print legenda
         for(Speler s : Game.spelerslijst){
-            kopiesjop.print(" ("+s.getNaam()+": "+s.getKleur()+")  ");
+            kopiesjop.print("("+s.getNaam()+": "+s.getKleur()+") ");
         }
         kopiesjop.println();
         

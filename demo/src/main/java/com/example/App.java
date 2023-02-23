@@ -1,22 +1,19 @@
 package com.example;
 
-import com.example.IScanner;
-
 public class App {
+    public static Speler huidigeSpeler;
     public static void main(String[] args) {
         Game.init(2);
         Speelveld.printBord();
 
-        /*Scannerv2 scanjiklub = new Scannerv2();
+        IScanner scanjiklub = new Scannerv2();
         System.out.println("press any button to start game");
         scanjiklub.nextLine();
         kiesSpelers(scanjiklub);
         vulSpelerInfoIn(scanjiklub);
-        //Uitleg spel
-        //Uitleg symbolen spelers
-        IPrinter mistEenSVoorSprinter = new Tgowprinter();
-        //Begin spel
-        //Einde spel*/
+        speluitleg();
+
+        start(scanjiklub);
 
     }
 
@@ -60,5 +57,73 @@ public class App {
             }
             
         }
+    }
+
+    private static void haalOudSpelBordTerug(){
+        UndoData terug = (UndoData) Speelveld.movegeschiedenisStack.pakPannenkoekVanBord();
+        terug.terugNaarOudeOpstelling();
+    }
+
+    private static void speluitleg(){
+        System.out.println("je hebt 2 mogelijke zetten: verplaats of dupliceer.");
+        System.out.println("Bij dupliceer plaats je een extra van je eigen pionnen op het bord, aangrenzend aan een vakje met jouw pion.");
+        System.out.println("Bij verplaats, verplaats je een van jouw pionnen 2 vakjes in een rechte lijn.");
+        System.out.println("Na dupliceren en verplaatsen veranderen alle pionnen in de 8 vakjes om de nieuwe of verplaatste) pion naar jouw kleur.");
+        System.out.println("Het spel is voorbij als iemand geen zet meer kan doen.");
+        System.out.println("Degene met de meeste pionnen wint.");
+    }
+
+    public static void start(IScanner scan3PO){
+        Speelveld.printBord();
+    }
+
+    public static void beurt(IScanner scan2D2){
+        if(huidigeSpeler.geenLegalMoveBeschikbaar()){
+            gameOver();
+        }else{
+            System.out.println(""+huidigeSpeler+" is aan de beurt.");
+            for(Speler s : Game.spelerslijst){
+                System.out.println(s.getNaam()+": "+s.countEigen()+" punten");
+            }
+            Speelveld.printBord();
+            System.out.println("Kies je pion die je wil verplaatsen of dupliceren.");
+            System.out.println("Schrijf in de vorm [x-coordinaat],[y-coordinaat], zoals 3,4");
+            vraagCoordinatenInput(scan2D2);
+        }
+
+    }
+
+    private static void vraagCoordinatenInput(IScanner scanGonJinn) {
+        loop1: while (true) {
+            try {
+                String input = scanGonJinn.nextLine();
+                String[] integerStrings = input.split("[^0-9]+");
+
+                int x = Speelveld.rijen + 1;
+                int y = Speelveld.kolommen + 1;
+                if (integerStrings[0] != null
+                        &&
+                        integerStrings[1] != null
+                        &&
+                        integerStrings.length == 2) {
+
+                    x = Integer.parseInt(integerStrings[0]);
+                    y = Integer.parseInt(integerStrings[1]);
+                }
+
+                if (x < Speelveld.rijen && x >= 0 && y < Speelveld.kolommen && y >= 0) {
+                    break loop1;
+                } else {
+                    throw (new Exception("Geef juiste invoer!"));
+                }
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                System.out.println("Probeer het opnieuw.");
+            }
+        }
+    }
+
+    private static void gameOver() {
     }
 }
