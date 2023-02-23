@@ -35,7 +35,7 @@ public class Speler {
         return count;
     }
 
-    public String doeZet(int xOud, int yOud, int xNieuw, int yNieuw){
+    public void doeZet(int xOud, int yOud, int xNieuw, int yNieuw)throws Exception{
         String errBericht;
 
         if(Speelveld.veldPionnen[xOud][yOud].getKleur()==getKleur()){
@@ -44,7 +44,9 @@ public class Speler {
 
                 Speelveld.movegeschiedenisStack.nieuwPannenkoekOpBord(new UndoData());
 
-                return "Speler "+naam+" dupliceerde x"+xOud+"y"+yOud+"naar x"+xNieuw+"y"+yNieuw;
+                System.out.println("Speler "+naam+" dupliceerde x"+xOud+"y"+yOud+"naar x"+xNieuw+"y"+yNieuw);
+                return;
+
             }catch(Exception e){
                 errBericht = e.getMessage();
             }
@@ -53,13 +55,16 @@ public class Speler {
 
                 Speelveld.movegeschiedenisStack.nieuwPannenkoekOpBord(new UndoData());
                 
-                return "Speler "+naam+" verplaatste x"+xOud+"y"+yOud+"naar x"+xNieuw+"y"+yNieuw;
+                System.out.println("Speler "+naam+" verplaatste x"+xOud+"y"+yOud+"naar x"+xNieuw+"y"+yNieuw);
+
+                return;
+
             }catch(Exception f){
                 errBericht=f.getMessage();
             }
-            return errBericht;
         }else{
-            return "Kies een pion van je eigen karakter";//vroeger stond hier "((...) eigen kleur"
+            errBericht = "Kies een pion van je eigen karakter";//vroeger stond hier "((...) eigen kleur"
+            throw(new Exception(errBericht));
         }
     }
 

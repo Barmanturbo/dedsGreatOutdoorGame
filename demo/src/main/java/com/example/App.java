@@ -92,7 +92,7 @@ public class App {
             if(huidigeSpeler.getIsRobot()){
                 vraagCoordinatenInputRobot();
             }else{
-                vraagCoordinatenInputHuman(scan2D2);
+                vraagCoordinatenInput1Human(scan2D2);
             }
         }
 
@@ -101,14 +101,15 @@ public class App {
     private static void vraagCoordinatenInputRobot() {
     }
 
-    private static void vraagCoordinatenInputHuman(IScanner scanGonJinn) {
-        int x = Speelveld.rijen + 1;
-        int y = Speelveld.kolommen + 1;
+    private static void vraagCoordinatenInput1Human(IScanner scanGonJinn) {
+        int xNu = Speelveld.rijen + 1;
+        int yNu = Speelveld.kolommen + 1;
+
 
         loop1: while (true) {
             try {
                 String input = scanGonJinn.nextLine();
-                
+
                 if(input=="redo"){
                     try{
                         haalOudSpelBordTerug();
@@ -118,7 +119,7 @@ public class App {
                     }catch(Exception e){
                         System.out.println(e.getMessage());
                     }
-                    break loop1;
+                    break loop1; //DIT IS EEN OUT VOOR DEZE LOOP
                 }
 
                 String[] integerStrings = input.split("[^0-9]+");
@@ -129,12 +130,15 @@ public class App {
                         &&
                         integerStrings.length == 2) {
 
-                    x = Integer.parseInt(integerStrings[0]);
-                    y = Integer.parseInt(integerStrings[1]);
+                    xNu = Integer.parseInt(integerStrings[0]);
+                    yNu = Integer.parseInt(integerStrings[1]);
                 }
 
-                if (x < Speelveld.rijen && x >= 0 && y < Speelveld.kolommen && y >= 0) {
+                if (xNu < Speelveld.rijen && xNu >= 0 && yNu < Speelveld.kolommen && yNu >= 0) {
+
+                    vraagCoordinatenInput2(xNu,yNu, scanGonJinn); //DIT IS DE ENIGE ANDERE OUT UIT DEZE LOOP
                     break loop1;
+                    
                 } else {
                     throw (new Exception("Geef juiste invoer!"));
                 }
@@ -143,6 +147,45 @@ public class App {
                 System.out.println(e.getMessage());
                 System.out.println("Probeer het opnieuw.");
             }
+        }
+
+    }
+
+    private static void vraagCoordinatenInput2(int xNu, int yNu, IScanner lukeScanwalker) {
+        int xZo = Speelveld.rijen + 1;
+        int yZo = Speelveld.kolommen + 1;
+
+        vCI2: while (true){
+            try {
+                String input = lukeScanwalker.nextLine();
+
+                String[] integerStrings = input.split("[^0-9]+");
+
+                if (integerStrings[0] != null
+                        &&
+                        integerStrings[1] != null
+                        &&
+                        integerStrings.length == 2) {
+
+                    xZo = Integer.parseInt(integerStrings[0]);
+                    yZo = Integer.parseInt(integerStrings[1]);
+                }
+
+                if (xZo < Speelveld.rijen && xZo >= 0 && yZo < Speelveld.kolommen && yZo >= 0) {
+
+                    huidigeSpeler.doeZet(xNu,yNu,xZo,yZo);
+                    
+                    break vCI2;
+                    
+                } else {
+                    throw (new Exception("Geef juiste invoer!"));
+                }
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                System.out.println("Probeer het opnieuw.");
+            }
+
         }
 
     }
