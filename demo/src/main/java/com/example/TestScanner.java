@@ -22,7 +22,6 @@ public class TestScanner implements IScanner {
 
     @Override
     public int nextInt() {
-        // TODO Auto-generated method stub
         return waardeInt;
     }
 }

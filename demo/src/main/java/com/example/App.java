@@ -90,15 +90,18 @@ public class App {
             System.out.println("Schrijf in de vorm [x-coordinaat],[y-coordinaat], zoals 3,4");
             System.out.println("Of typ \"redo\" als je je een zet terug wil doen.");
             if(huidigeSpeler.getIsRobot()){
-                vraagCoordinatenInputRobot();
+                Robotmoves.vraagCoordinatenInputRobot();
             }else{
                 vraagCoordinatenInput1Human(scan2D2);
             }
+
+            if(Game.spelerslijst.indexOf(huidigeSpeler)>=Game.spelerslijst.size()-1){
+                huidigeSpeler = Game.spelerslijst.get(0);
+            }else{
+                huidigeSpeler = Game.spelerslijst.get(Game.spelerslijst.indexOf(huidigeSpeler)+1);
+            }
         }
 
-    }
-
-    private static void vraagCoordinatenInputRobot() {
     }
 
     private static void vraagCoordinatenInput1Human(IScanner scanGonJinn) {
