@@ -1,13 +1,22 @@
 package com.example;
 
+import com.example.IScanner;
 
 public class App {
     public static void main(String[] args) {
-        Scannerv2 scanjiklub = new Scannerv2();
+        Game.init(2);
+        Speelveld.printBord();
+
+        /*Scannerv2 scanjiklub = new Scannerv2();
         System.out.println("press any button to start game");
         scanjiklub.nextLine();
         kiesSpelers(scanjiklub);
         vulSpelerInfoIn(scanjiklub);
+        //Uitleg spel
+        //Uitleg symbolen spelers
+        IPrinter mistEenSVoorSprinter = new Tgowprinter();
+        //Begin spel
+        //Einde spel*/
 
     }
 
@@ -16,10 +25,10 @@ public class App {
         int input;
 
         while(correctewaarde==false){
-            System.out.println("Kies het aantal spelers.");
+            System.out.println("Kies het aantal spelers. (min 2, max 4)");
             System.out.println("Of kies 0 om het programma te sluiten.");
             input = scanSolo.nextInt();
-            if(input>=1&&input<=4){
+            if(input>=2&&input<=4){
                 correctewaarde = true;
                 Game.init(input);
             }

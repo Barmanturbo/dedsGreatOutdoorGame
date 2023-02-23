@@ -9,6 +9,7 @@ public class Speelveld {
 
     public static Stack movegeschiedenisStack = new Stack();
 
+    public static IPrinter kopiesjop = new Tgowprinter(); //vernoemd naar kopiesjop Delft
 
     public static boolean legalDupliceer(int xNu, int yNu, int xMove, int yMove){
         return 
@@ -54,4 +55,36 @@ public class Speelveld {
             &&
             Math.abs(y1-y2)!=1;
     }
+
+    public static void printBord(){
+        //print x-as
+        for(int k=0;k<=kolommen;k++){
+            kopiesjop.print(""+k+" ");
+        }
+        kopiesjop.println();
+        
+        //print y-as
+        for(int i = 0; i < veldPionnen.length; i++){
+
+            kopiesjop.print(i);
+
+            for(int j = 0; j < veldPionnen[i].length; j++){
+
+                if(veldPionnen[i][j]==null){
+                    kopiesjop.print(" .");
+                }else{
+                    kopiesjop.print(" "+veldPionnen[i][j].getKleur());
+                }
+            }
+            kopiesjop.println();
+        }
+
+        //print legenda
+        for(Speler s : Game.spelerslijst){
+            kopiesjop.print(" ("+s.getNaam()+": "+s.getKleur()+")  ");
+        }
+        kopiesjop.println();
+        
+    }
+
 }
