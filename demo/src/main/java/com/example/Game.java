@@ -40,7 +40,7 @@ public class Game {
             voegPionToe.add(new Pion(0, 0, spelerslijst.get(1).getKleur()));
             voegPionToe.add(new Pion(0, 1, spelerslijst.get(1).getKleur()));
             voegPionToe.add(new Pion(1, 0, spelerslijst.get(1).getKleur()));
-            voegPionToe.add(new Pion(1, 2, spelerslijst.get(1).getKleur()));
+            voegPionToe.add(new Pion(1, 1, spelerslijst.get(1).getKleur()));
 
         if (spelerslijst.size() == 3) {
             voegPionToe.add(new Pion(0, 5, spelerslijst.get(2).getKleur()));
