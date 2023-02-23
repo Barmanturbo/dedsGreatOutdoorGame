@@ -6,5 +6,6 @@ public class App {
         Scannerv2 Scanjiklub = new Scannerv2();
         System.out.println("press any button to continue");
         Scanjiklub.nextLine();
+        Game.init();
     }
 }

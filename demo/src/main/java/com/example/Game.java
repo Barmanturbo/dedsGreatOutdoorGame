@@ -3,9 +3,9 @@ package com.example;
 import java.util.ArrayList;
 
 public class Game {
-    public ArrayList<Speler> spelerslijst = new ArrayList<Speler>();
+    public static ArrayList<Speler> spelerslijst = new ArrayList<Speler>();
 
-    public void init() {
+    public static void init() {
         schoonmaken();
         spelerslijst.add(new Speler("rood", "p1"));
         spelerslijst.add(new Speler("blauw", "p2"));
@@ -14,7 +14,7 @@ public class Game {
 
     }
 
-    private void schoonmaken() {
+    private static void schoonmaken() {
         for (int i = 0; i <= Speelveld.rijen; i++) {
             for (int j = 0; j <= Speelveld.kolommen; j++) {
                 Speelveld.veldPionnen[i][j] = null;
@@ -22,7 +22,7 @@ public class Game {
         }
     }
 
-    private void plaatsPionnen() {
+    private static void plaatsPionnen() {
         ArrayList<Pion> voegPionToe = new ArrayList<>();
             voegPionToe.add(new Pion(6, 6, spelerslijst.get(0).getKleur()));
             voegPionToe.add(new Pion(6, 7, spelerslijst.get(0).getKleur()));
