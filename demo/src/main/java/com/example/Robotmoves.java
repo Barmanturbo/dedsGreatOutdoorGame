@@ -42,6 +42,7 @@ public class Robotmoves {
         int hoogstePunten = 0;
 
         ArrayList<Pion> alJouwPionnen = new ArrayList<Pion>();// VIND ALLE EIGEN PIONNEN
+        
         for (int i = 0; i < Speelveld.rijen; i++) {
             for (int j = 0; j < Speelveld.kolommen; j++) {
                 if (Speelveld.veldPionnen[i][j] != null) {

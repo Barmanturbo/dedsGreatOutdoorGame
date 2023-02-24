@@ -10,21 +10,26 @@ public class Speelveld {
     public static IPrinter kopiesjop = new Tgowprinter(); //vernoemd naar kopiesjop Delft
 
     public static boolean legalDupliceer(int xNu, int yNu, int xMove, int yMove){
+        try{
         return 
             !isLeeg(xNu, yNu)
             &&
             isLeeg(xMove,yMove)
             &&
             isAanliggend(xNu,yNu,xMove,yMove);
+        }catch(Exception e){return false;}
     }
 
     public static boolean legalVerplaats(int xNu, int yNu, int xMove, int yMove){
-        return 
+        try{return 
             !isLeeg(xNu, yNu)
             &&
             isLeeg(xMove,yMove)
             &&
             isOp2Afstand(xNu,yNu,xMove,yMove);
+        }catch(Exception e){
+            return false;
+        }
     }
 
     private static boolean isLeeg(int x, int y){
