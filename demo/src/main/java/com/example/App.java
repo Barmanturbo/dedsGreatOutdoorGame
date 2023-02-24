@@ -104,8 +104,10 @@ public class App {
             System.out.println("Schrijf in de vorm [x-coordinaat],[y-coordinaat], zoals 3,4");
             System.out.println("Of typ \"redo\" als je je een zet terug wil doen.");
             if (huidigeSpeler.getIsRobot()) {
+
                 Robotmoves.vraagCoordinatenInputRobot();
             } else {
+
                 vraagCoordinatenInput1Human(scan2D2);
             }
 
@@ -148,7 +150,7 @@ public class App {
                     yNu = Integer.parseInt(integerStrings[1]);
                 }
 
-                if (xNu < Speelveld.rijen && xNu >= 0 && yNu < Speelveld.kolommen && yNu >= 0) {
+                if (xNu < Speelveld.rijen && xNu >= 0 && yNu < Speelveld.kolommen && yNu >= 0 && Speelveld.veldPionnen[xNu][yNu]!=null) {
 
                     vraagCoordinatenInput2(xNu, yNu, scanGonJinn); // DIT IS DE ENIGE ANDERE OUT UIT DEZE LOOP
                     break loop1;
@@ -187,8 +189,11 @@ public class App {
                 }
 
                 if (xZo < Speelveld.rijen && xZo >= 0 && yZo < Speelveld.kolommen && yZo >= 0) {
-
+                    try{
                     huidigeSpeler.doeZet(xNu, yNu, xZo, yZo);
+                    }catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
 
                     break vCI2;
 
