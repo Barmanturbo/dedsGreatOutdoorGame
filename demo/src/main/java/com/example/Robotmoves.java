@@ -20,7 +20,7 @@ public class Robotmoves {
 
     static void beterv1() throws Exception {
         // vind alle moves die de meeste punten opleveren
-        ArrayList<Zet> meestePuntenMoves = vinddMeestePuntenMoves();
+        ArrayList<Zet> meestePuntenMoves = vindMeestePuntenMoves();
 
         // kies vervolgens een getal tussen 0 en meestePuntenMoves.size()
         Random random = new Random();
@@ -37,11 +37,12 @@ public class Robotmoves {
 
     }
 
-    private static ArrayList<Zet> vinddMeestePuntenMoves() {
+    private static ArrayList<Zet> vindMeestePuntenMoves() {
         ArrayList<Zet> gecontroleerdeMoves = new ArrayList<Zet>();
         int hoogstePunten = 0;
 
         ArrayList<Pion> alJouwPionnen = new ArrayList<Pion>();// VIND ALLE EIGEN PIONNEN
+        
         for (int i = 0; i < Speelveld.rijen; i++) {
             for (int j = 0; j < Speelveld.kolommen; j++) {
                 if (Speelveld.veldPionnen[i][j] != null) {

@@ -40,27 +40,22 @@ public class Speler {
 
         if(Speelveld.veldPionnen[xOud][yOud].getKleur()==getKleur()){
             try{
-                Speelveld.veldPionnen[xOud][yOud].dupliceer(xNieuw, yNieuw);
-
-                Speelveld.movegeschiedenisStack.nieuwPannenkoekOpBord(new UndoData());
-
-                System.out.println("Speler "+naam+" dupliceerde x"+xOud+"y"+yOud+"naar x"+xNieuw+"y"+yNieuw);
-                return;
-
-            }catch(Exception e){
-                errBericht = e.getMessage();
-            }
-            try{
-                Speelveld.veldPionnen[xOud][yOud].verplaats(xNieuw, yNieuw);
-
-                Speelveld.movegeschiedenisStack.nieuwPannenkoekOpBord(new UndoData());
-                
-                System.out.println("Speler "+naam+" verplaatste x"+xOud+"y"+yOud+"naar x"+xNieuw+"y"+yNieuw);
-
-                return;
-
+                if(Speelveld.veldPionnen[xOud][yOud]!=null){
+                    if(Speelveld.legalDupliceer(xOud, yOud, xNieuw, yNieuw)){
+                        Speelveld.veldPionnen[xOud][yOud].dupliceer(xNieuw, yNieuw);
+                        Speelveld.movegeschiedenisStack.nieuwPannenkoekOpBord(new UndoData());
+                        System.out.println("Speler "+naam+" dupliceerde x"+xOud+"y"+yOud+"naar x"+xNieuw+"y"+yNieuw);
+                        return;
+                    }
+                    if(Speelveld.legalVerplaats(xOud, yOud, xNieuw, yNieuw)){
+                        Speelveld.veldPionnen[xOud][yOud].verplaats(xNieuw, yNieuw);
+                        Speelveld.movegeschiedenisStack.nieuwPannenkoekOpBord(new UndoData());
+                        System.out.println("Speler "+naam+" verplaatste x"+xOud+"y"+yOud+"naar x"+xNieuw+"y"+yNieuw);
+                        return;
+                    }
+                }else{throw(new Exception("Kies een legale move"));}
             }catch(Exception f){
-                errBericht=f.getMessage();
+                System.out.println(f.getMessage());
             }
         }else{
             errBericht = "Kies een pion van je eigen karakter";//vroeger stond hier "((...) eigen kleur"
