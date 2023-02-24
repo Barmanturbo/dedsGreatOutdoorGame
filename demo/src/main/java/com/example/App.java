@@ -92,7 +92,7 @@ public class App {
         if (huidigeSpeler.geenLegalMoveBeschikbaar()) {
             gameOver=true;
         } else {
-            System.out.println("" + huidigeSpeler + " is aan de beurt.");
+            System.out.println("" + huidigeSpeler.getNaam() + " is aan de beurt.");
             for (Speler s : Game.spelerslijst) {
                 System.out.println(s.getNaam() + ": " + s.countEigen() + " punten");
             }
