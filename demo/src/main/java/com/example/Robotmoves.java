@@ -17,7 +17,7 @@ public class Robotmoves {
             }
         }
     }
-
+    
     static void beterv1() throws Exception {
         // vind alle moves die de meeste punten opleveren
         ArrayList<Zet> meestePuntenMoves = vinddMeestePuntenMoves();

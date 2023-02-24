@@ -32,10 +32,10 @@ public class Game {
 
     private static void plaatsPionnen() {
         ArrayList<Pion> voegPionToe = new ArrayList<>();
-            voegPionToe.add(new Pion(5, 5, spelerslijst.get(0).getKleur()));
-            voegPionToe.add(new Pion(5, 6, spelerslijst.get(0).getKleur()));
-            voegPionToe.add(new Pion(6, 5, spelerslijst.get(0).getKleur()));
-            voegPionToe.add(new Pion(6, 6, spelerslijst.get(0).getKleur()));
+            voegPionToe.add(new Pion(Speelveld.kolommen-2, Speelveld.rijen-2, spelerslijst.get(0).getKleur()));
+            voegPionToe.add(new Pion(Speelveld.kolommen-2, Speelveld.rijen-1, spelerslijst.get(0).getKleur()));
+            voegPionToe.add(new Pion(Speelveld.kolommen-1, Speelveld.rijen-2, spelerslijst.get(0).getKleur()));
+            voegPionToe.add(new Pion(Speelveld.kolommen-1, Speelveld.rijen-1, spelerslijst.get(0).getKleur()));
 
             voegPionToe.add(new Pion(0, 0, spelerslijst.get(1).getKleur()));
             voegPionToe.add(new Pion(0, 1, spelerslijst.get(1).getKleur()));
@@ -43,16 +43,16 @@ public class Game {
             voegPionToe.add(new Pion(1, 1, spelerslijst.get(1).getKleur()));
 
         if (spelerslijst.size() == 3 || spelerslijst.size() == 4) {
-            voegPionToe.add(new Pion(0, 5, spelerslijst.get(2).getKleur()));
-            voegPionToe.add(new Pion(1, 5, spelerslijst.get(2).getKleur()));
-            voegPionToe.add(new Pion(0, 6, spelerslijst.get(2).getKleur()));
-            voegPionToe.add(new Pion(1, 6, spelerslijst.get(2).getKleur()));
+            voegPionToe.add(new Pion(0, Speelveld.rijen-2, spelerslijst.get(2).getKleur()));
+            voegPionToe.add(new Pion(1, Speelveld.rijen-2, spelerslijst.get(2).getKleur()));
+            voegPionToe.add(new Pion(0, Speelveld.rijen-2, spelerslijst.get(2).getKleur()));
+            voegPionToe.add(new Pion(1, Speelveld.rijen-2, spelerslijst.get(2).getKleur()));
         }
         if (spelerslijst.size() == 4) {
-            voegPionToe.add(new Pion(5, 0, spelerslijst.get(2).getKleur()));
-            voegPionToe.add(new Pion(5, 1, spelerslijst.get(2).getKleur()));
-            voegPionToe.add(new Pion(6, 0, spelerslijst.get(2).getKleur()));
-            voegPionToe.add(new Pion(6, 1, spelerslijst.get(2).getKleur()));
+            voegPionToe.add(new Pion(Speelveld.kolommen-2, 0, spelerslijst.get(2).getKleur()));
+            voegPionToe.add(new Pion(Speelveld.kolommen-2, 1, spelerslijst.get(2).getKleur()));
+            voegPionToe.add(new Pion(Speelveld.kolommen-2, 0, spelerslijst.get(2).getKleur()));
+            voegPionToe.add(new Pion(Speelveld.kolommen-2, 1, spelerslijst.get(2).getKleur()));
         }
 
         for(Pion p:voegPionToe){
