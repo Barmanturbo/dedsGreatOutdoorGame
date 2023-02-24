@@ -3,6 +3,8 @@ package com.example;
 public class App {
     public static Speler huidigeSpeler;
 
+    private static boolean gameOver=false;
+
     public static void main(String[] args) {
         Game.init(2);
         Speelveld.printBord();
@@ -23,12 +25,12 @@ public class App {
         int input;
 
         while (correctewaarde == false) {
-            System.out.println("Kies het aantal spelers. (min 2, max 4)");
+            System.out.println("Druk 2 om verder te gaan");
             System.out.println("Of kies 0 om het programma te sluiten.");
             input = scanSolo.nextInt();
             if (input >= 2 && input <= 4) {
                 correctewaarde = true;
-                Game.init(input);
+                Game.init(2);
             }
             if (input == 0) {
                 System.exit(0);
@@ -78,11 +80,17 @@ public class App {
 
     public static void start(IScanner scan3PO) {
         Speelveld.printBord();
+        while(!gameOver){
+            beurt(scan3PO);
+        }
+        gameOverBericht();
+        scan3PO.nextLine();
+        System.exit(0);
     }
 
     public static void beurt(IScanner scan2D2) {
         if (huidigeSpeler.geenLegalMoveBeschikbaar()) {
-            gameOver();
+            gameOver=true;
         } else {
             System.out.println("" + huidigeSpeler + " is aan de beurt.");
             for (Speler s : Game.spelerslijst) {
@@ -195,6 +203,20 @@ public class App {
 
     }
 
-    private static void gameOver() {
+    public static void gameOverBericht(){
+        Speelveld.printBord();
+        System.out.println("Het spel is voorbij.");
+        int speler1score = Game.spelerslijst.get(0).countEigen();
+        int speler2score = Game.spelerslijst.get(1).countEigen();
+        if(speler1score>speler2score){
+            System.out.println("Speler 1 wint.");
+        }else{
+            if(speler2score>speler1score){
+                System.out.println("Speler 2 wint");
+            }else{
+                System.out.println("Gelijkspel!");
+            }
+        }
+        System.out.println("Druk op een knop om de app af te sluiten.");
     }
 }
