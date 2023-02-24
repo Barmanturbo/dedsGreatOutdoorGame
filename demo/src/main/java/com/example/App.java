@@ -91,7 +91,7 @@ public class App {
     }
 
     public static void beurt(IScanner scan2D2) {
-        Speelveld.printBord();
+        Speelveld.printBord();//print bord
         if (huidigeSpeler.geenLegalMoveBeschikbaar()) {
             gameOver=true;
         } else {
