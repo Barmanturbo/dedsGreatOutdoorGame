@@ -11,22 +11,27 @@ public class Speelveld {
 
     public static boolean legalDupliceer(int xNu, int yNu, int xMove, int yMove){
         try{
-        return 
-            !isLeeg(xNu, yNu)
-            &&
-            isLeeg(xMove,yMove)
-            &&
-            isAanliggend(xNu,yNu,xMove,yMove);
+            
+            return 
+                !isLeeg(xNu, yNu)
+                &&
+                isLeeg(xMove,yMove)
+                &&
+                isAanliggend(xNu,yNu,xMove,yMove);
+
         }catch(Exception e){return false;}
     }
 
     public static boolean legalVerplaats(int xNu, int yNu, int xMove, int yMove){
-        try{return 
-            !isLeeg(xNu, yNu)
-            &&
-            isLeeg(xMove,yMove)
-            &&
-            isOp2Afstand(xNu,yNu,xMove,yMove);
+        try{
+
+            return 
+                !isLeeg(xNu, yNu)
+                &&
+                isLeeg(xMove,yMove)
+                &&
+                isOp2Afstand(xNu,yNu,xMove,yMove);
+
         }catch(Exception e){
             return false;
         }
