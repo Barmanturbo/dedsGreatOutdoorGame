@@ -81,6 +81,8 @@ public class App {
     public static void start(IScanner scan3PO) {
         Speelveld.printBord();
         while(!gameOver){
+            System.out.println("Druk op een knop om verder te gaan");
+            scan3PO.nextLine();
             beurt(scan3PO);
         }
         gameOverBericht();
@@ -89,6 +91,7 @@ public class App {
     }
 
     public static void beurt(IScanner scan2D2) {
+        Speelveld.printBord();
         if (huidigeSpeler.geenLegalMoveBeschikbaar()) {
             gameOver=true;
         } else {
@@ -106,11 +109,9 @@ public class App {
                 vraagCoordinatenInput1Human(scan2D2);
             }
 
-            if (Game.spelerslijst.indexOf(huidigeSpeler) >= Game.spelerslijst.size() - 1) {
-                huidigeSpeler = Game.spelerslijst.get(0);
-            } else {
-                huidigeSpeler = Game.spelerslijst.get(Game.spelerslijst.indexOf(huidigeSpeler) + 1);
-            }
+            if (huidigeSpeler==Game.spelerslijst.get(0)){
+                huidigeSpeler = Game.spelerslijst.get(1);
+            }else{huidigeSpeler = Game.spelerslijst.get(0);}
         }
 
     }
@@ -170,6 +171,7 @@ public class App {
 
         vCI2: while (true) {
             try {
+                System.out.println("Kies veld 2");
                 String input = lukeScanwalker.nextLine();
 
                 String[] integerStrings = input.split("[^0-9]+");
