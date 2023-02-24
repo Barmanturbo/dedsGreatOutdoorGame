@@ -14,5 +14,6 @@ class Zet {
         yNu = y1;
         xZo = x2;
         yZo = y2;
+        this.isDupliceer=isDupliceer;
     }
 }
