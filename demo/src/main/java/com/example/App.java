@@ -108,7 +108,7 @@ public class App {
             //instructies
             System.out.println("Kies je pion die je wil verplaatsen of dupliceren.");
             System.out.println("Schrijf in de vorm [x-coordinaat],[y-coordinaat], zoals 3,4");
-            System.out.println("Of typ \"redo\" als je je een zet terug wil doen.");
+            System.out.println("Of typ \"Redo\" als je je een zet terug wil doen.");
 
             if (huidigeSpeler.getIsRobot()) {
                 Robotmoves.vraagCoordinatenInputRobot();
@@ -131,7 +131,7 @@ public class App {
             try {
                 String input = scanGonJinn.nextLine();
 
-                if (input == "redo") {
+                if (input.equals("Redo")) {
                     try {
                         haalOudSpelBordTerug();
                         while (huidigeSpeler.getIsRobot()) {
@@ -194,6 +194,7 @@ public class App {
                 }
 
                 if (xZo < Speelveld.rijen && xZo >= 0 && yZo < Speelveld.kolommen && yZo >= 0) {
+                
 
                     huidigeSpeler.doeZet(xNu, yNu, xZo, yZo);
 
