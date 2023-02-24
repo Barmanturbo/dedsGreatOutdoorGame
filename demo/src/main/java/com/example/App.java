@@ -36,9 +36,9 @@ public class App {
     }
 
     private static void vulSpelerInfoIn(IScanner scanakin){
-        for(Speler s : Game.spelerslijst){
+
             System.out.println("Kies een naam voor speler 1");
-            s.setNaam(scanakin.nextLine());
+            Game.spelerslijst.get(0).setNaam(scanakin.nextLine());
             while(true){
                 System.out.println("Is speler "+s.getNaam()+" een mens of een robot?");
                 System.out.println("Voer 1 in als mens en 2 als robot");
@@ -46,11 +46,13 @@ public class App {
                 if(input==1){
                     s.setIsRobot(false);
                     System.out.println(""+s.getNaam()+" wordt gespeeld door een mens.");
+                    teller++;
                     break;
                 }
                 if(input==2){
                     s.setIsRobot(true);
                     System.out.println(""+s.getNaam()+" wordt gespeeld door de computer.");
+                    teller++;
                     break;
                 }
                 System.out.println("Kies een juiste waarde.");

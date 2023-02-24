@@ -7,20 +7,16 @@ public class Game {
 
     public static void init(int n) {
         schoonmaken();
-        spelerslijst.add(new Speler("a", "p1"));//⊙
-        spelerslijst.add(new Speler("b", "p2"));//⊡
-        if(n==3){
-            spelerslijst.add(new Speler("c", "p3"));//△ 
-        }
-        if(n==4){
-            spelerslijst.add(new Speler("d","p4"));//Ω
-        }
+        spelerslijst.add(new Speler("a", "p1"));
+        spelerslijst.add(new Speler("b", "p2"));
+        
         App.huidigeSpeler = spelerslijst.get(0);
         plaatsPionnen();
 
     }
 
     private static void schoonmaken() {
+        spelerslijst.clear();
         for (int i = 0; i <= Speelveld.rijen; i++) {
             for (int j = 0; j <= Speelveld.kolommen; j++) {
                 try{
