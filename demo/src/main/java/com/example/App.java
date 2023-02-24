@@ -25,10 +25,10 @@ public class App {
         int input;
 
         while (correctewaarde == false) {
-            System.out.println("Druk 2 om verder te gaan");
+            System.out.println("Druk 1 om verder te gaan");
             System.out.println("Of kies 0 om het programma te sluiten.");
             input = scanSolo.nextInt();
-            if (input >= 2 && input <= 4) {
+            if (input >= 1 && input <= 4) {
                 correctewaarde = true;
                 Game.init(2);
             }
